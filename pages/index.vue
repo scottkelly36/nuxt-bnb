@@ -1,9 +1,16 @@
 <template>
-  <Hero/>
+  <section class="card__container">
+    <Card 
+  v-for="home in homesInfo"
+  :key="home.objectID"
+  :homesInfo="home"
+  />
+  </section>
+  
 </template>
 
 <script>
-import axios from 'axios';
+import {homes} from '@/assets/data/homes';
 
 
 export default {
@@ -13,24 +20,19 @@ export default {
     return {
       title : "Home"
     }
-  },
-  data(){
-    return{
-      homes : []
-    }
-  }, 
-  async created(){
-    const config = {
-      headers : {
-        Accept : "application/json"
-      }
-    };
-    try {
-     
-      console.log(res.data)
-    } catch (error) {
-      console.log(error);
+  },data(){
+    return {
+      homesInfo : homes
     }
   }
+  
+  
+  
 }
 </script>
+<style scoped>
+  .card__container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>
