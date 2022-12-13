@@ -1,52 +1,73 @@
 <template>
   <article class="card">
+   
+      <swiper :pagination="true" class="swiper mySwiper" ref="swiper">
+          <swiper-wrapper>
+          <swiper-slide v-for="(img, i) in homesInfo.images" :key="i">
+             <img  :src=img alt="" class="card__img"/>
+          </swiper-slide>
+        </swiper-wrapper>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </swiper>
+   
     
-    <swiper
-    :slides-per-view="3"
-    :space-between="50"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
-  >
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
-    ...
-  </swiper>
     <h2 class="card__location">{{homesInfo.location.city}}, {{homesInfo.location.country}}</h2>
+    <p class="text--light">{{homesInfo.title}}</p>
+    <p class="text--heavy card__price">£{{homesInfo.pricePerNight}}</p>
   </article>
 </template>
 
 <script>
- // import Swiper core and required modules
- import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper';
-
-// Import Swiper styles
+import Swiper from 'swiper/swiper-bundle.min';
+import 'swiper/swiper-bundle.min.css';
 
 
-// Import Swiper styles
 export default {
-  
-  setup() {
-    const onSwiper = (swiper) => {
-      console.log(swiper);
-    };
-    const onSlideChange = () => {
-      console.log('slide change');
-    };
-    return {
-      onSwiper,
-      onSlideChange,
-      modules: [Navigation, Pagination, Scrollbar, A11y],
-    };
-  },props:['homesInfo']
+  async mounted() {
+    await this.$nextTick();
+    new Swiper(this.$refs.swiper, {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },pagination: {
+    el: '.swiper-pagination',
+  },
+    });
+  },
+ props:['homesInfo'],
+
+
+ 
+ 
 };
+
 
 </script>
 
 <style>
-    .card{ background-color: aquamarine;
-    width: 30%; height: 100px;}
+
+
+
+    .card{ 
+      
+      width: 25%;
+      height: fit-content;
+      margin: 25px;
+    }
+
+    .card:hover{
+      scale: 1.1;
+    }
+
+    .card__img{
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .card__price{
+      text-decoration: underline;
+    }
 </style>
