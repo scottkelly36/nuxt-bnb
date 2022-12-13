@@ -1,16 +1,16 @@
 <template>
   <article class="card">
    
-      <swiper :pagination="true" class="swiper mySwiper" ref="swiper">
-          <swiper-wrapper>
-          <swiper-slide v-for="(img, i) in homesInfo.images" :key="i">
+      <div :pagination="true" class="swiper mySwiper" ref="swiper">
+          <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="(img, i) in homesInfo.images" :key="i">
              <img  :src=img alt="" class="card__img"/>
-          </swiper-slide>
-        </swiper-wrapper>
+          </div>
+        </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
-      </swiper>
+      </div>
    
     
     <h2 class="card__location">{{homesInfo.location.city}}, {{homesInfo.location.country}}</h2>
