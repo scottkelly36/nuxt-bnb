@@ -3,9 +3,9 @@
    
       <div :pagination="true" class="swiper mySwiper" ref="swiper">
           <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(img, i) in homesInfo.images" :key="i">
+          <NuxtLink  class="swiper-slide" v-for="(img, i) in homesInfo.images" :key="i" :to="`/property/${homesInfo.objectID}`">
              <img  :src=img alt="" class="card__img"/>
-          </div>
+          </NuxtLink>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>

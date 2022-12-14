@@ -1,7 +1,10 @@
 <template>
     <div>
     <Navbar/>
-    <Nuxt/>  
+    <div class="page__wrapper">
+        <Nuxt/>  
+    </div>
+    
     </div>
     
 </template>
@@ -12,5 +15,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+}
+
+.page__wrapper{
+    padding: 25px 300px;
 }
 </style>
