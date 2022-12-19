@@ -20,9 +20,15 @@
         :bedrooms="homeInfo[0].bedrooms" 
         :beds="homeInfo[0].beds" 
         :bathrooms="homeInfo[0].bathrooms" 
-        :host="homeInfo[0].host"/>     
+        :host="homeInfo[0].host"/>
+        
+        <PropertyDescription 
+        :description="homeInfo[0].description"
+        :note="homeInfo[0].note"
+        />
+        <DatePicker/>
 
-    </section>
+    </section >
   
 </template>
 
@@ -30,7 +36,7 @@
 import {homes} from '@/assets/data/homes';
 import PropertyReviewBar from '../../components/PropertyReviewBar.vue';
 
-console.log(homes)
+
 
 export default {
   components: { PropertyReviewBar },

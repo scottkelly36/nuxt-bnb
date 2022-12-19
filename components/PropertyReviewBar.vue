@@ -1,9 +1,9 @@
 <template>
   <section class="review__bar">
     <p class="property__review">{{value}}</p>
-        <p class="property__spacing">.</p>
+        <p class="property__spacing"></p>
         <NuxtLink to="" class="property__reviewsCount">{{isPlural(count, "Review")}}</NuxtLink>
-        <p class="property__spacing">.</p>
+        <p class="property__spacing"></p>
         <p class="property__location">{{city}}, {{country}}</p>
   </section>
 </template>
@@ -13,7 +13,7 @@ export default {
     props : ["value", "count", "city", "country"],
     methods:{
         isPlural(count, word){
-            console.log(typeof count)
+            
             if(count === 1){
                 return`${count} ${word}`
             } else {
@@ -36,6 +36,10 @@ export default {
         display: inline;
         justify-content: center;
         align-items: center;
-        width: 50px;
+        width: 5px;
+        height: 5px;
+        background-color: var(--black);
+        border-radius: 50%;
+        margin: 0px 15px;
     }
 </style>

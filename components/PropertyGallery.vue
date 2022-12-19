@@ -21,6 +21,7 @@ export default {
         grid-template-columns: 50% 25% 25%;
         grid-template-rows: auto;
         gap: 5px;
+        margin-bottom: 50px;
         
     }
     .gallery__img0{
